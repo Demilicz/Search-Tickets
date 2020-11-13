@@ -12,9 +12,9 @@ class TicketsFavUI {
 
   static ticketTemplate(ticket) {
     return `
-    <div class="row">
-      <div class="col s12 ">
-        <div class="favorite-item  d-flex align-items-start">
+    <div class="row ticket purple lighten-5">
+      <div class="col s12">
+        <div class="favorite-item  d-flex align-items-start card ticket-card">
                     <img
                       src="${ticket[7]}"
                       class="favorite-item-airline-img"
