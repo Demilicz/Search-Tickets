@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', e => {
   // Events
   initApp();
   initAppFavor();
-  
 
-  
+
+
   form.addEventListener('submit', e => {
     e.preventDefault();
     onFormSubmit();
@@ -43,12 +43,12 @@ document.addEventListener('DOMContentLoaded', e => {
     const flight_number = oldTick.querySelector(".ticket-flight-number").textContent;
     const transfers = oldTick.querySelector(".ticket-transfers").textContent;
 
-    
+
     await favorLoc.fetchFavorTickets({ airLine_Name, origin, destenation,  depart_date, price, flight_number, transfers});
 
     FavTicket.renderTicket(favorLoc.lastTicket);
-    
-    
+
+
   }
 
   async function initAppFavor() {
@@ -69,9 +69,4 @@ document.addEventListener('DOMContentLoaded', e => {
   }
 });
 
-// *1 - создать отдельный метод для получения airlines
-// *2 - в init добавить получение airlines
-// *3 - serializeAirlines
-// *4 - serializeTickets и переделать serializeCities и createShortCities и getCityCodeByKey
-// *5 - новые методы getAirlineNameByCode, getAirlineLogoByCode, getCityNameByCode
-// *6 - TicketsUI
+

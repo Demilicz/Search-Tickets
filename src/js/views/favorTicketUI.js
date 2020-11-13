@@ -5,21 +5,15 @@ class TicketsFavUI {
 
   renderTicket(ticket) {
 
-    // console.log(ticket);
-    // console.log(TicketsFavUI.ticketTemplate(ticket));
-
     const template = TicketsFavUI.ticketTemplate(ticket);
-
-    console.log(template);
 
     this.container.insertAdjacentHTML('afterbegin', template);
   }
 
-
-
   static ticketTemplate(ticket) {
-    
     return `
+    <div class="row">
+    <div class="col s12 ">
     <div class="favorite-item  d-flex align-items-start">
                 <img
                   src="${ticket[7]}"
@@ -52,6 +46,8 @@ class TicketsFavUI {
                   >
                 </div>
               </div>
+            </div>
+            </div>
     `;
   }
 }
