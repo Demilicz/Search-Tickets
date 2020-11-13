@@ -10,11 +10,16 @@ import FavTicket from'./views/favorTicketUI';
 document.addEventListener('DOMContentLoaded', e => {
   const form = formUI.form;
   const favorItem =  document.querySelector('.tickets-sections .row');
+  const favoriteTickets = document.querySelector('#dropdown1');
 
   // Events
   initApp();
   initAppFavor();
 
+  favoriteTickets.addEventListener('click', e => {
+    if(e.target.classList.contains('delete-favorite'))
+    onDeleteTicket(e.target);
+  });
 
 
   form.addEventListener('submit', e => {
@@ -53,6 +58,10 @@ document.addEventListener('DOMContentLoaded', e => {
 
   async function initAppFavor() {
     await favorLoc.init();
+  }
+
+  function onDeleteTicket(target){
+    target.closest('.row').remove();
   }
 
   async function onFormSubmit() {
