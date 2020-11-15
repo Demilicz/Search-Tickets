@@ -3,7 +3,6 @@ import currencyUI from './currency';
 class TicketsUI {
   constructor(currency) {
     this.container = document.querySelector('.tickets-sections .row');
-    this.currencySymbol = currency.currencySymbol;
   }
 
   renderTickets(tickets) {
@@ -17,7 +16,7 @@ class TicketsUI {
     let fragment = '';
 
     tickets.forEach(ticket => {
-      const template = TicketsUI.ticketTemplate(ticket, this.currencySymbol);
+      const template = TicketsUI.ticketTemplate(ticket);
       fragment += template;
     });
 
@@ -39,8 +38,7 @@ class TicketsUI {
     `;
   }
 
-  static ticketTemplate(ticket, currency) {
-    
+  static ticketTemplate(ticket) {
     return `
     <div class="col s12 m6">
       <div class="card ticket-card">
@@ -60,7 +58,7 @@ class TicketsUI {
         </div>
         <div class="ticket-time-price d-flex align-items-center">
           <span class="ticket-time-departure">${ticket.departure_at}</span>
-          <span class="ticket-price ml-auto">${currency}${ticket.price}</span>
+          <span class="ticket-price ml-auto">${currencyUI.currencySymbol}${ticket.price}</span>
         </div>
         <div class="ticket-additional-info">
           <span class="ticket-transfers">Пересадок: ${ticket.transfers}</span>
